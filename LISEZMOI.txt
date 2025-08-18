@@ -1,0 +1,17 @@
+1. Description du Projet
+    Ce projet consiste à développer l’ensemble du code d’un robot autonome capable de suivre un parcours prédéfini sur une table à l’aide d’un ruban noir, de gérer des obstacles et de réagir aux choix de direction indiqués par l’évaluateur via des boutons. Le système s’appuie sur un microcontrôleur ATmega324PA et intègre divers capteurs (infrarouge, suiveur de ligne) ainsi que des modules de contrôle (DEL bicolore, PWM, timers, bus CAN, etc.).
+
+2. Organisation du Code et Structure du Dépôt
+    Dossier lib : Contient toutes les classes et modules de la bibliothèque (gestion du CAN, du DEL, des moteurs, des capteurs, etc.).
+    Dossier app : Regroupe le code applicatif principal (contrôle global du robot, localisation, interprétation du parcours, fichier main.cpp, etc.).
+    Chaque fichier inclut un en‐tête précisant les auteurs, une description concise de son rôle et les détails matériels nécessaires (par exemple, les broches utilisées).
+
+3. Instructions de Compilation et Utilisation
+    La compilation se fait via AVR-GCC avec une fréquence définie (F_CPU = 8 MHz).
+    Utilisez la commande make (ou suivez les instructions détaillées dans le document PF_Explications.pdf) pour générer le binaire destiné au microcontrôleur.
+    Après compilation, téléversez le code sur le robot en utilisant votre outil habituel (ex. : avrdude).
+
+4. Comportement Attendu du Robot
+    Avant le démarrage, l’évaluateur sélectionne les directions à prendre aux points B et C en appuyant sur les boutons (le bouton blanc pour une direction gauche et le bouton d’interruption pour une direction droite) – la DEL confirme le choix (rouge pour gauche, vert pour droite).
+    Une fois le choix effectué et après un délai de 2 secondes, le robot démarre et suit le parcours en adaptant son comportement selon les obstacles rencontrés (bifurcations, détections de poteaux, passage par la grille, etc.).
+    À la fin du parcours, le robot se positionne exactement comme au départ et la DEL clignote alternativement en rouge et vert à 2 Hz pour signaler l’arrêt complet.
