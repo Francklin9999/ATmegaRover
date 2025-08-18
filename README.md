@@ -8,7 +8,8 @@ We scored **96%** on the final robot challenge and earned an **A** in the course
 ---
 
 ![ATmega Rover](robot.jpeg)
-[Watch the robot in action](robot_demo.mp4)
+
+<video src="https://github.com/user-attachments/assets/61a5cabd-36e2-4c3a-a96c-d1d9a1d97e8c" controls width="100%"></video>
 
 ---
 
